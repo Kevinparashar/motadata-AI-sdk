@@ -57,3 +57,72 @@ api = APICommunicator(base_url="https://api.example.com")
 
 For detailed information about each module, see the README.md files in their respective directories.
 
+## Libraries
+The SDK uses Python standard library modules and will support third-party packages as needed:
+
+**Python Standard Library:**
+- **typing**: Type hints for better code documentation and IDE support
+- **dataclasses**: Data class decorators for structured data models
+- **datetime**: Date and time handling
+- **asyncio**: Asynchronous programming support
+- **threading**: Thread synchronization and parallel execution
+- **enum**: Enumeration support
+- **logging**: Logging framework
+- **os**: Operating system interface
+- **pathlib**: Object-oriented filesystem paths
+- **json**: JSON encoding and decoding
+- **base64**: Base64 encoding and decoding
+- **abc**: Abstract base classes
+- **concurrent.futures**: Thread pool execution
+- **unittest**: Unit testing framework
+
+**Third-party Libraries:**
+- (Add third-party dependencies as they are added to requirements.txt)
+
+## Functions and Classes
+The SDK is organized into modules, each containing specific functions and classes:
+
+### Core Module (`src/core/`)
+- **Data Models**: RequestModel, ResponseModel, ConfigModel
+- **Concurrency**: AsyncExecutor, ThreadPool, ThreadSafeCounter
+- **Events**: EventHandler, EventEmitter, EventType
+- **Utilities**: setup_logger, validate_config, get_env_var, ensure_dir, merge_dicts
+
+### Agents Module (`src/agents/`)
+- **Agent**: Main agent class with lifecycle management
+- **AgentCommunicator**: Base communicator for agent-to-agent communication
+- **NATSCommunicator**: NATS-specific communicator implementation
+
+### AI Gateway Module (`src/ai_gateway/`)
+- **AIGateway**: Main gateway interface for AI model interactions
+- **ModelProvider**: Abstract base class for model providers
+- **OpenAIProvider, AnthropicProvider**: Specific model provider implementations
+- **PromptManager, PromptTemplate**: Prompt management system
+- **I/O Functions**: preprocess_input, postprocess_output, normalize_text, chunk_text, format_messages
+
+### Database Module (`src/database/`)
+- **SQLDatabase**: SQL database connection and operations (PostgreSQL, MySQL)
+- **NoSQLDatabase**: NoSQL database operations (MongoDB, Cassandra)
+- **VectorDatabase**: Vector database for similarity search (FAISS, Pinecone)
+
+### Codecs Module (`src/codecs/`)
+- **Codec**: Abstract base class for codecs
+- **JSONCodec, Base64Codec, BinaryCodec, CustomCodec**: Specific codec implementations
+- **Utilities**: register_codec, get_codec, list_codecs, validate_encoded_data, encode_with_format, decode_with_format
+
+### API Module (`src/api/`)
+- **APICommunicator**: HTTP and WebSocket communication
+- **WebSocketCommunicator**: Real-time WebSocket communication
+- **Authenticator**: Base authenticator class (OAuth2, JWT, APIKey implementations)
+- **Utilities**: encode_data, decode_data, send_request, prepare_request_data, parse_response
+
+### Config Module (`src/config/`)
+- **Settings**: Configuration settings manager
+- **LoggerMixin**: Mixin class for logging capability
+- **Functions**: load_config, setup_logger, get_logger, configure_logging
+
+### Tests Module (`src/tests/`)
+- **Test Classes**: TestAgent, TestAgentCommunicator, TestAIGateway, TestPromptManager, TestSQLDatabase, TestNoSQLDatabase, TestVectorDatabase, TestJSONCodec, TestBase64Codec, TestCustomCodec, TestAPICommunicator, TestOAuth2Authenticator, TestJWTAuthenticator, TestAPIKeyAuthenticator
+
+For detailed function and class documentation, refer to the README.md files in each module directory.
+

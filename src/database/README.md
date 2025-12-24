@@ -34,3 +34,56 @@ similar = vector_db.search(query_vector, top_k=10)
 
 Each database type provides a consistent interface while handling provider-specific optimizations and features.
 
+## Libraries
+This module uses the following Python standard libraries and packages:
+
+- **typing**: Type hints (Dict, Any, List, Optional, Tuple)
+- **abc**: Abstract base classes (ABC, abstractmethod) for defining database interfaces
+- **threading**: Thread synchronization primitives (Lock) for thread-safe database operations
+
+## Functions and Classes
+
+### sql_db.py
+- **SQLDatabase** (class): SQL database connection and operations
+  - `__init__()`: Initialize database with connection_string and pool_size
+  - `connect()`: Establish database connection
+  - `disconnect()`: Close database connection
+  - `execute_query()`: Execute a SELECT query
+  - `execute_update()`: Execute an INSERT/UPDATE/DELETE query
+  - `execute_transaction()`: Execute multiple queries in a transaction
+  - `create_table()`: Create a table with the given schema
+  - `is_connected` (property): Check if connected to database
+- **PostgreSQLDatabase** (class): PostgreSQL-specific database implementation
+- **MySQLDatabase** (class): MySQL-specific database implementation
+
+### no_sql_db.py
+- **NoSQLDatabase** (class): Base NoSQL database connection and operations
+  - `__init__()`: Initialize database with connection_string and database_name
+  - `connect()`: Establish database connection
+  - `disconnect()`: Close database connection
+  - `insert_one()`: Insert a single document
+  - `insert_many()`: Insert multiple documents
+  - `find_one()`: Find a single document
+  - `find_many()`: Find multiple documents
+  - `update_one()`: Update a single document
+  - `delete_one()`: Delete a single document
+  - `is_connected` (property): Check if connected to database
+- **MongoDBDatabase** (class): MongoDB-specific database implementation
+- **CassandraDatabase** (class): Cassandra-specific database implementation
+
+### vector_db.py
+- **VectorDatabase** (class): Base vector database for similarity search
+  - `__init__()`: Initialize vector database with provider, api_key, and config
+  - `connect()`: Establish connection to vector database
+  - `disconnect()`: Close connection to vector database
+  - `upsert()`: Upsert vectors into the database
+  - `search()`: Search for similar vectors
+  - `delete()`: Delete vectors by IDs
+  - `get_stats()`: Get database statistics
+  - `is_connected` (property): Check if connected to vector database
+- **FAISSDatabase** (class): FAISS vector database implementation
+  - `save_index()`: Save FAISS index to disk
+  - `load_index()`: Load FAISS index from disk
+- **PineconeDatabase** (class): Pinecone vector database implementation
+  - `create_index()`: Create a new Pinecone index
+

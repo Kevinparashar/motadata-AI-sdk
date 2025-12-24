@@ -33,3 +33,36 @@ logger.info("SDK initialized")
 
 Configuration can be loaded from YAML files, JSON files, environment variables, or passed programmatically. The logging system integrates seamlessly with Python's standard logging module.
 
+## Libraries
+This module uses the following Python standard libraries and packages:
+
+- **typing**: Type hints (Dict, Any, Optional)
+- **os**: Operating system interface for environment variables
+- **json**: JSON encoding and decoding for configuration file parsing
+- **pathlib**: Object-oriented filesystem paths for configuration file management
+- **logging**: Logging framework for application logging
+- **sys**: System-specific parameters and functions for logging output
+- **src.core.utils**: get_env_var and validate_config from core module
+
+## Functions and Classes
+
+### settings.py
+- **Settings** (class): Configuration settings manager
+  - `__init__()`: Initialize settings with optional config dictionary
+  - `_load_from_env()`: Load configuration from environment variables
+  - `get()`: Get a configuration value by key (supports dot notation)
+  - `set()`: Set a configuration value by key (supports dot notation)
+  - `update()`: Update configuration with a dictionary
+  - `to_dict()`: Convert settings to dictionary
+  - `from_file()`: Class method to load settings from a JSON or YAML file
+  - `from_env()`: Class method to create settings from environment variables
+  - `save_to_file()`: Save settings to a file
+- **load_config()**: Load configuration from file or environment
+
+### logging.py
+- **setup_logger()**: Setup and configure a logger with custom settings (name, level, format, output_file, console)
+- **get_logger()**: Get a logger instance by name
+- **configure_logging()**: Configure root logger for the SDK
+- **LoggerMixin** (class): Mixin class to add logging capability to any class
+  - `logger` (property): Get logger for this class
+

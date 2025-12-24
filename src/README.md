@@ -27,3 +27,21 @@ from src.database.sql_db import SQLDatabase
 
 Each module is designed to be imported independently, allowing you to use only the components you need for your specific use case.
 
+## Libraries
+The SDK modules use various Python standard libraries and packages:
+
+- **Standard Library**: typing, dataclasses, datetime, asyncio, threading, enum, logging, os, pathlib, json, base64, abc, concurrent.futures
+- **Third-party**: (Add any third-party dependencies here as they are added to requirements.txt)
+
+## Functions and Classes
+Each module in the `src/` directory contains its own set of functions and classes. For detailed information about specific functions and classes, refer to the README.md file in each module directory:
+
+- **core/**: Data models, concurrency utilities, event handlers, and utility functions
+- **agents/**: Agent classes and communication handlers
+- **ai_gateway/**: AI Gateway interface, model integrations, prompt management, and I/O processing
+- **database/**: SQL, NoSQL, and vector database implementations
+- **codecs/**: Encoding/decoding codecs and utilities
+- **api/**: API communication, authentication, and request/response handling
+- **config/**: Configuration management and logging setup
+- **tests/**: Unit test classes for all SDK components
+

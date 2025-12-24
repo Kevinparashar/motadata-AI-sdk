@@ -32,3 +32,39 @@ codec = get_codec("my_format")
 
 Codecs are particularly useful when working with custom protocols, binary formats, or when you need to transform data for specific communication channels.
 
+## Libraries
+This module uses the following Python standard libraries and packages:
+
+- **typing**: Type hints (Any, Dict, Optional, Type)
+- **abc**: Abstract base classes (ABC, abstractmethod) for defining codec interfaces
+- **json**: JSON encoding and decoding for JSON codec implementation
+- **base64**: Base64 encoding and decoding for Base64 codec implementation
+
+## Functions and Classes
+
+### custom_codec.py
+- **Codec** (abstract class): Abstract base class for codecs
+  - `encode()`: Abstract method to encode data to bytes
+  - `decode()`: Abstract method to decode bytes to data
+- **JSONCodec** (class): JSON encoding/decoding codec
+  - `encode()`: Encode data to JSON bytes
+  - `decode()`: Decode JSON bytes to data
+- **Base64Codec** (class): Base64 encoding/decoding codec
+  - `encode()`: Encode data to base64 bytes
+  - `decode()`: Decode base64 bytes to data
+- **BinaryCodec** (class): Binary encoding/decoding codec
+  - `encode()`: Encode data to binary
+  - `decode()`: Decode binary to data
+- **CustomCodec** (class): Custom codec with configurable encoding/decoding
+  - `__init__()`: Initialize codec with format and config
+  - `encode()`: Encode data using the configured codec
+  - `decode()`: Decode data using the configured codec
+
+### codec_utils.py
+- **register_codec()**: Register a custom codec in the codec registry
+- **get_codec()**: Get a codec instance by name
+- **list_codecs()**: List all registered codecs
+- **validate_encoded_data()**: Validate that data can be decoded with the given codec
+- **encode_with_format()**: Quick encode function with format specification
+- **decode_with_format()**: Quick decode function with format specification
+
